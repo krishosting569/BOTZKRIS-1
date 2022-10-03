@@ -247,11 +247,11 @@ textOverlaymenu(pushname, allmenu(prefix, MyData, sender, ownerNumber), `No : ${
 break
 case 'daftar':
 if (MyData("id", sender) == sender) return textOverlay(pushname, "Anda Sudah terdaftar sebelumnya", `No : ${sender.split("@")[0]}`);
-textOverlay("SUKSES", "Sukses Terdaftar", `No : ${sender.split("@")[0]}`);
+textOverlay("SUKSES TERDAFTAR", "Sukses Terdaftar", `No : ${sender.split("@")[0]}`);
 addLogin({id: sender, uang: 1000, exp:1, level:1, karakter:false, energi:100, medali:1000, claim:1, status:false, emote: "👑"})
 break
 case 'buykarakter':
-if (MyData("id", sender) !== sender) return textOverlay(pushname, "Anda belum terdaftar di kris bot, silahkan daftar terlebih dahulu, gunakan command #daftar", "Daftar dulu ya kak:3");
+if (MyData("id", sender) !== sender) return textOverlay(pushname, "Anda belum terdaftar di database bot, silahkan daftar terlebih dahulu, gunakan command #daftar", "Daftar dulu ya kak:3");
 const liskarakter = `[ *KARAKTER SHOP* ]
 
 ~> *WINDBOT*
@@ -670,6 +670,15 @@ if (!isBotGroupAdmins) return reply("BOT BUKAN ADMIN");
 if (nay.message.extendedTextMessage === undefined || nay.message.extendedTextMessage === null) return reply('Tag orang yang ingin di demote di group ini');
 const mention = nay.message.extendedTextMessage.contextInfo.mentionedJid;
 await nayla.groupParticipantsUpdate(from, mention,"demote");
+break
+case 'add':
+if (MyData("id", sender) !== sender) return textOverlay(pushname, "Anda belum terdaftar di database bot, silahkan daftar terlebih dahulu, gunakan command #daftar", "Daftar dulu ya kak:3");
+if (!isGroup) return reply("ONLY GROUP");
+if (!isGroupAdmins) return reply("ONLY ADMIN");
+if (!isBotGroupAdmins) return reply("BOT BUKAN ADMIN");
+if (!q) return reply("Masukan nomor yang ingin ditambahkan di group\nex: !add 62881xxxxxxx")
+nomor = `${args[0].replace(/ /g, '')}@s.whatsapp.net`
+await nayla.groupParticipantsUpdate(from, [nomor],"add")
 break
 case 'kick':
 if (MyData("id", sender) !== sender) return textOverlay(pushname, "Anda belum terdaftar di database bot, silahkan daftar terlebih dahulu, gunakan command #daftar", "Daftar dulu ya kak:3");
