@@ -17,6 +17,7 @@ return `[ *BOT* (🥶) ]
 > *${prefix}group*
 > *${prefix}promote*
 > *${prefix}demote*
+> *${prefix}add*
 > *${prefix}kick*
 > *${prefix}resetlink*
 > *${prefix}linkgroup*
@@ -39,8 +40,9 @@ return `[ *BOT* (🥶) ]
 • *ORTU*
 • *LORD R1YNZ*
 • *MEGAWATI*
+[ @0 ]
 
-By *@KrisHosting
+By *@adiwajshing/baileys*`
 }
 // THX-TO JANGAN DI UBAH YA BANH:3 
 // WEB : https://md-devs.herokuapp.com
